@@ -1,0 +1,184 @@
+###############################################################
+
+{
+    email certificate_admin@bios.plus
+    #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+}
+
+bios.plus {
+    #import cloudflare
+    #import logging
+
+        #Auth
+        # Let's Encrypt Email Verification address
+        #tls admin@bios.plus
+
+        #Cloudflare DNS entry
+        
+
+        # #Compression Related
+        # minify
+        # gzip
+
+        # #Header
+        # header / {
+        #     X-Content-Type-Options nosniff
+        #     X-XSS-Protection "1; mode=block"
+        #     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        # }
+
+        # #Logging
+        # log /home/bios/Sites/bios.plus/logs/access.log {
+        #     rotate_size 10
+        #     rotate_age 7
+        #     rotate_keep 4
+        # }
+
+
+}
+
+# #WILDCARD (leftover from v1)
+
+#         (wildcard_cert) {
+#                 tls {
+#                 dns cloudflare
+#                 wildcard
+#                 }
+#         }
+
+
+
+#     (CF_whitelist) {
+        # #CLOUDFLARE IP RANGES (you still need to add these to a filter) 
+        # #IPV4
+        # 173.245.48.0/20
+        # 103.21.244.0/22
+        # 103.22.200.0/22
+        # 103.31.4.0/22
+        # 141.101.64.0/18
+        # 108.162.192.0/18
+        # 190.93.240.0/20
+        # 188.114.96.0/20
+        # 197.234.240.0/22
+        # 198.41.128.0/17
+        # 162.158.0.0/15
+        # 104.16.0.0/12
+        # 172.64.0.0/13
+        # 131.0.72.0/22
+
+        # #IPV6
+        # 2400:cb00::/32
+        # 2606:4700::/32
+        # 2803:f800::/32
+        # 2405:b500::/32
+        # 2405:8100::/32
+        # 2a06:98c0::/29
+        # 2c0f:f248::/32
+#     }
+
+
+
+#IMPORTABLES
+
+(cloudflare) {
+    tls {
+        #Signal the DNS Provider for CA challenges
+        dns cloudflare {env.CLOUDFLARE_AUTH_TOKEN}
+        #Signal dir to pull DNS provider certs for Authenticated Origin Pulls
+        #client_certificate_file /etc/caddy/Sites/bios.plus/cloudflare/origin-pull-ca.pem
+    }
+}
+
+(logging) {
+    log {
+        output file /etc/caddy/sites/bios.plus/logging/access.log {
+            roll_size 1gb
+            roll_keep 5
+            roll_keep_for 720h
+        }
+        #format {
+        #    format single_field common_log
+        #}
+    }
+}
+
+
+#Subdomains
+
+    https://jackett-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-jackett:9117
+    }
+
+    https://nzbhydra2-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-nzbhydra2:5076
+    }
+
+    https://nzbget-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-nzbget:6789
+    }
+
+    https://ombi-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-ombi:3579
+    }
+
+    https://plex.bios.plus {
+        import cloudflare
+        import logging
+        redir app.plex.tv
+    }
+
+    https://portainer-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy localhost:9000
+    }
+
+    https://qbittorrent-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-qbittorrent:8080
+    }
+
+    https://radarr-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-radarr:7878
+    }
+
+    https://radarr4k-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-radarr4k:7878
+    }
+
+    https://requestrr-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-requestrr:4545
+    }
+
+    https://sonarr-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-sonarr:8989
+    }
+
+    https://sonarr4k-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-sonarr4k:8989
+    }
+
+    https://tautulli-aurora.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-tautulli:8181
+    }
