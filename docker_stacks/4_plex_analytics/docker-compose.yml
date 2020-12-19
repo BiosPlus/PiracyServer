@@ -1,31 +1,31 @@
 ---
-  version: "2.1"
-  services:
-    ombi:
-      image: ghcr.io/linuxserver/ombi
-      container_name: aurora-ombi
-      environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=Australia/Melbourne
+version: "2.1"
+services:
+  ombi:
+    image: ghcr.io/linuxserver/ombi
+    container_name: aurora-ombi
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Melbourne
 #        - BASE_URL=/ombi (optional)
-      volumes:
-        - /home/bios/Docker/Containers/AppData/o/ombi:/config
+    volumes:
+      - /home/bios/Docker/Containers/AppData/o/ombi:/config
 #      ports:
 #        - 3579:3579
-      restart: unless-stopped
-    tautulli:
-      image: ghcr.io/linuxserver/tautulli
-      container_name: aurora-tautulli
-      environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=Australia/Melbourne
-      volumes:
-        - /home/bios/Docker/Containers/AppData/t/tautulli:/config
+    restart: unless-stopped
+  tautulli:
+    image: ghcr.io/linuxserver/tautulli
+    container_name: aurora-tautulli
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Melbourne
+    volumes:
+      - /home/bios/Docker/Containers/AppData/t/tautulli:/config
 #      ports:
 #        - 8181:8181
-      restart: unless-stopped
+    restart: unless-stopped
 
 networks:
     default:

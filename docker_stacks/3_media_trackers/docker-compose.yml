@@ -1,66 +1,66 @@
 ---
 version: "2.1"
-    services:
-      sonarr4k:
-        image: ghcr.io/linuxserver/sonarr
-        container_name: aurora-sonarr4k
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=Australia/Melbourne
-            - UMASK_SET=022
-        volumes:
-            - /home/bios/Docker/Containers/AppData/s/sonarr4k:/config
-            - /home/bios/Docker/Data/Downloads:/downloads
-            - /mnt/rclone/greatwave_media/Television (4k):/tv
-    #    ports:
-    #      - 8989:8989
-        restart: unless-stopped
-      sonarr:
-        image: ghcr.io/linuxserver/sonarr
-        container_name: aurora-sonarr
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=Australia/Melbourne
-            - UMASK_SET=022
-        volumes:
-            - /home/bios/Docker/Containers/AppData/s/sonarr:/config
-            - /home/bios/Docker/Data/Downloads:/downloads
-            - /mnt/rclone/greatwave_media/Television:/tv
-    #    ports:
-    #      - 8989:8989
-        restart: unless-stopped
-      radarr4k:
-        image: ghcr.io/linuxserver/radarr
-        container_name: aurora-radarr4k
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=Australia/Melbourne
-            - UMASK_SET=022
-        volumes:
-            - /home/bios/Docker/Containers/AppData/r/radarr4k:/config
-            - /home/bios/Docker/Data/Downloads:/downloads
-            - /mnt/rclone/greatwave_media/Movies (4k):/movies
-    #    ports:
-    #      - 7878:7878
-        restart: unless-stopped
-      radarr:
-        image: ghcr.io/linuxserver/radarr
-        container_name: aurora-radarr
-        environment:
-            - PUID=1000
-            - PGID=1000
-            - TZ=Australia/Melbourne
-            - UMASK_SET=022
-        volumes:
-            - /home/bios/Docker/Containers/AppData/r/radarr:/config
-            - /home/bios/Docker/Data/Downloads:/downloads
-            - /mnt/rclone/greatwave_media/Movies:/movies
-    #    ports:
-    #      - 7878:7878
-        restart: unless-stopped
+services:
+  sonarr4k:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: aurora-sonarr4k
+    environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Australia/Melbourne
+        - UMASK_SET=022
+    volumes:
+        - /home/bios/Docker/Containers/AppData/s/sonarr4k:/config
+        - /home/bios/Docker/Data/Downloads:/downloads
+        - /mnt/rclone/greatwave_media/Television (4k):/tv
+#    ports:
+#      - 8989:8989
+    restart: unless-stopped
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: aurora-sonarr
+    environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Australia/Melbourne
+        - UMASK_SET=022
+    volumes:
+        - /home/bios/Docker/Containers/AppData/s/sonarr:/config
+        - /home/bios/Docker/Data/Downloads:/downloads
+        - /mnt/rclone/greatwave_media/Television:/tv
+#    ports:
+#      - 8989:8989
+    restart: unless-stopped
+  radarr4k:
+    image: ghcr.io/linuxserver/radarr
+    container_name: aurora-radarr4k
+    environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Australia/Melbourne
+        - UMASK_SET=022
+    volumes:
+        - /home/bios/Docker/Containers/AppData/r/radarr4k:/config
+        - /home/bios/Docker/Data/Downloads:/downloads
+        - /mnt/rclone/greatwave_media/Movies (4k):/movies
+#    ports:
+#      - 7878:7878
+    restart: unless-stopped
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: aurora-radarr
+    environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Australia/Melbourne
+        - UMASK_SET=022
+    volumes:
+        - /home/bios/Docker/Containers/AppData/r/radarr:/config
+        - /home/bios/Docker/Data/Downloads:/downloads
+        - /mnt/rclone/greatwave_media/Movies:/movies
+#    ports:
+#      - 7878:7878
+    restart: unless-stopped
 
 networks:
     default:
