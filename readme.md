@@ -6,3 +6,7 @@
 
 ### Portainer
 ```docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce```
+
+
+### CaddyFile
+```mkdir -p ~/Docker/Containers/AppData/c/caddy2plus/ && wget -O ~/Docker/Containers/AppData/c/caddy2plus/Caddyfile https://raw.githubusercontent.com/BiosPlus/PiracyServer/main/Caddyfile/Caddyfile```
