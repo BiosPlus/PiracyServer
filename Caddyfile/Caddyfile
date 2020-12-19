@@ -105,79 +105,79 @@ bios.plus {
 
 #Subdomains
 
-    https://jackett-aurora.bios.plus {
+    https://aurora-aurora-jackett.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-jackett:9117
     }
 
-    https://nzbhydra2-aurora.bios.plus {
+    https://aurora-nzbhydra2.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-nzbhydra2:5076
     }
 
-    https://nzbget-aurora.bios.plus {
+    https://aurora-nzbget.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-nzbget:6789
     }
 
-    https://ombi-aurora.bios.plus {
+    https://aurora-ombi.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-ombi:3579
     }
 
-    https://plex.bios.plus {
+    https://aurora-plex.bios.plus {
         import cloudflare
         import logging
         redir app.plex.tv
     }
 
-    https://portainer-aurora.bios.plus {
+    https://aurora-portainer.bios.plus {
         import cloudflare
         import logging
         reverse_proxy localhost:9000
     }
 
-    https://qbittorrent-aurora.bios.plus {
+    https://aurora-qbittorrent.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-qbittorrent:8080
     }
 
-    https://radarr-aurora.bios.plus {
+    https://aurora-radarr.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-radarr:7878
     }
 
-    https://radarr4k-aurora.bios.plus {
+    https://aurora-radarr4k.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-radarr4k:7878
     }
 
-    https://requestrr-aurora.bios.plus {
+    https://aurora-requestrr.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-requestrr:4545
     }
 
-    https://sonarr-aurora.bios.plus {
+    https://aurora-sonarr.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-sonarr:8989
     }
 
-    https://sonarr4k-aurora.bios.plus {
+    https://aurora-sonarr4k.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-sonarr4k:8989
     }
 
-    https://tautulli-aurora.bios.plus {
+    https://aurora-tautulli.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-tautulli:8181
