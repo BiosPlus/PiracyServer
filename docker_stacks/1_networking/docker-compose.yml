@@ -1,20 +1,20 @@
 ---
 version: "2.1"
-    services:
-        caddy2plus:
-        image: biosplus/caddy2plus
-        container_name: aurora-caddy2plus
-        environment:
-            - ACME_AGREE=true
-            - CLOUDFLARE_AUTH_TOKEN=empty #fill the token
-        volumes:
-            - /home/bios/Docker/Containers/AppData/c/caddy2plus/:/etc/caddy/
-        ports:
-            - 80:80
-            - 443:443
-        command: 'caddy' 'run' '--config=/etc/caddy/sites/Caddyfile' '--watch'
-        restart: unless-stopped
-   
+services:
+  caddy2plus:
+    image: biosplus/caddy2plus
+    container_name: aurora-caddy2plus
+    environment:
+        - ACME_AGREE=true
+        - CLOUDFLARE_AUTH_TOKEN=empty #fill the token
+    volumes:
+        - /home/bios/Docker/Containers/AppData/c/caddy2plus/:/etc/caddy/
+    ports:
+        - 80:80
+        - 443:443
+    command: 'caddy' 'run' '--config=/etc/caddy/sites/Caddyfile' '--watch'
+    restart: unless-stopped
+
 networks:
     default:
         external:
