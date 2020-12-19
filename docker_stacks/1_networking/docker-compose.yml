@@ -2,7 +2,7 @@
 version: "2.1"
 services:
     caddy2plus:
-    image: biosplus/caddy2plus
+        image: biosplus/caddy2plus
     container_name: aurora-caddy2plus
     environment:
         - ACME_AGREE=true
