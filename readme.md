@@ -9,4 +9,4 @@
 
 
 ### CaddyFile
-```wget -O ~/Docker/Containers/AppData/c/caddy2plus/sites/Caddyfile https://raw.githubusercontent.com/BiosPlus/PiracyServer/main/Caddyfile/Caddyfile```
+```mkdir -p ~/Docker/Containers/AppData/c/caddy2plus/ && wget -O ~/Docker/Containers/AppData/c/caddy2plus/Caddyfile https://raw.githubusercontent.com/BiosPlus/PiracyServer/main/Caddyfile/Caddyfile```
