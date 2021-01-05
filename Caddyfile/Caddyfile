@@ -2,7 +2,7 @@
 
 {
     email certificate_admin@bios.plus
-    acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+    #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 }
 
 bios.plus {
@@ -105,7 +105,7 @@ bios.plus {
 
 #Subdomains
 
-    https://aurora-aurora-jackett.bios.plus {
+    https://aurora-jackett.bios.plus {
         import cloudflare
         import logging
         reverse_proxy aurora-jackett:9117
