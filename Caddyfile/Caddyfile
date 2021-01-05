@@ -1,16 +1,16 @@
 ###############################################################
 
-{
-    email certificate_admin@bios.plus
+#{
+#    email certificate_admin@bios.plus
     #acme_ca https://acme-v02.api.letsencrypt.org/directory
     #LetsEncrypt Staging (UNCOMMENT TO USE FOR TESTING. NO API LIMIT)
     #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-}
+#}
 
 #ZeroSSL Certificate Provider
-#{
-#    cert_issuer zerossl {env.ZEROSSL_API_KEY}
-#}
+{
+    cert_issuer zerossl {env.ZEROSSL_API_KEY}
+}
 
 bios.plus {
     #import cloudflare
