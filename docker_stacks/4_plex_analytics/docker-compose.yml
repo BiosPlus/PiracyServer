@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   ombi:
-    image: ghcr.io/linuxserver/ombi
+    image: ghcr.io/linuxserver/ombi:latest
     container_name: aurora-ombi
     environment:
       - PUID=1000
@@ -15,7 +15,7 @@ services:
 #        - 3579:3579
     restart: unless-stopped
   tautulli:
-    image: ghcr.io/linuxserver/tautulli
+    image: ghcr.io/linuxserver/tautulli:latest
     container_name: aurora-tautulli
     environment:
       - PUID=1000
