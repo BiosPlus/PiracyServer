@@ -15,7 +15,7 @@ services:
       - 9981:9981
       - 9982:9982
     devices:
-      - /dev/dri:/dev/dri #optional
+      #- /dev/dri:/dev/dri #optional
       #- /dev/dvb:/dev/dvb #optional
     restart: unless-stopped
 
