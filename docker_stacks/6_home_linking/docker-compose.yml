@@ -3,7 +3,7 @@ version: "3.9"
 services:
   tvheadend:
     image: ghcr.io/linuxserver/tvheadend
-    container_name: tvheadend
+    container_name: aurora-tvheadend
     environment:
       - PUID=1000
       - PGID=1000
