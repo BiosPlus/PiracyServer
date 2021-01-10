@@ -11,9 +11,9 @@ services:
     volumes:
       - /home/bios/Docker/Containers/AppData/t/tvheadend:/config
       - /home/bios/Docker/Containers/AppData/t/tvheadend/recoridngs:/recordings
-    ports:
-      - 9981:9981
-      - 9982:9982
+#    ports:
+#      - 9981:9981
+#      - 9982:9982
     restart: unless-stopped
 
 networks:
