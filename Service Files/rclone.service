@@ -1,0 +1,42 @@
+[Unit]
+Description=Rclone Mount via cached remote (Intended for a server which primarily adds content rather than plays)
+Documentation=http://rclone.org/docs/
+Requires=systemd-networkd.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount \
+        --config=/home/bios/.config/rclone/rclone.conf \
+        --attr-timeout=30m \
+        --cache-chunk-clean-interval=10m \
+        --cache-chunk-path=/mnt/rclone/.cache/chunks \
+        --cache-chunk-total-size=250G \
+        --cache-db-path=/mnt/rclone/.cache/db \
+        --cache-dir=/mnt/rclone/.cache/cache \
+        --cache-tmp-upload-path=/mnt/rclone/.cache/upload-cache \
+        --cache-tmp-wait-time=60m \
+        --cache-workers=4 \
+        --cache-writes \
+        --dir-cache-time=120m \
+        --drive-acknowledge-abuse \
+        --fast-list \
+        --max-read-ahead 250M \
+        --low-level-retries=3 \
+        --poll-interval=1m \
+        --stats=0 \
+        --tpslimit=10 \
+        --use-mmap \
+        --user-agent="Stop rate limiting me, you cowards!" \
+        --vfs-cache-mode writes \
+        --vfs-cache-poll-interval=10m \
+        --vfs-cache-max-size 250G \
+        greatwave_media: /mnt/rclone/greatwave_media
+
+ExecStop=/usr/bin/fusermount -uz /mnt/rclone/greatwave_media
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=network-online.target
