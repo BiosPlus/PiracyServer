@@ -10,6 +10,7 @@ Type=simple
 ExecStart=/usr/bin/rclone mount \
         --config=/home/bios/.config/rclone/rclone.conf \
         --attr-timeout=30m \
+        --allow-other \
         --cache-chunk-clean-interval=10m \
         --cache-chunk-path=/mnt/rclone/.cache/chunks \
         --cache-chunk-total-size=250G \
