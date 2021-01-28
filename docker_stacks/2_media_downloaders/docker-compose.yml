@@ -14,22 +14,49 @@ services:
     #ports:
     #    - 6789:6789
     restart: unless-stopped
-  qbittorrent:
-    image: ghcr.io/linuxserver/qbittorrent
-    container_name: aurora-qbittorrent
-    environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=Australia/Melbourne
-        - UMASK_SET=022
-        - WEBUI_PORT=9080
+  # Broken until qbittorrent fix their shit. Use transmission instead.
+  # qbittorrent:
+  #   image: ghcr.io/linuxserver/qbittorrent
+  #   container_name: aurora-qbittorrent
+  #   environment:
+  #       - PUID=1000
+  #       - PGID=1000
+  #       - TZ=Australia/Melbourne
+  #       - UMASK_SET=022
+  #       - WEBUI_PORT=9080
+  #   volumes:
+  #       - /home/bios/Docker/Containers/AppData/q/qbittorrent:/config
+  #       - /home/bios/Docker/Data/Downloads:/downloads
+  #   #ports:
+  #   #    - 6881:6881
+  #   #    - 6881:6881/udp
+  #   #    - 8080:8080
+  #   restart: unless-stopped
+  transmission-openvpn:
+    container_name: aurora-transmission
+    cap_add:
+        - NET_ADMIN
     volumes:
-        - /home/bios/Docker/Containers/AppData/q/qbittorrent:/config
+        - /home/bios/Docker/Containers/AppData/t/transmission:/data
         - /home/bios/Docker/Data/Downloads:/downloads
+    environment:
+        - TZ=Australia/Melbourne
+        - OPENVPN_PROVIDER=PIA
+        - OPENVPN_CONFIG=finland,france,italy
+        - OPENVPN_USERNAME=user
+        - OPENVPN_PASSWORD=pass
+        - LOCAL_NETWORK=10.0.0.0/16
+        - TRANSMISSION_SPEED_LIMIT_UP=15000
+        - TRANSMISSION_SPEED_LIMIT_DOWN=15000
+        - TRANSMISSION_WEB_UI=flood
+        - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
+    logging:
+        driver: json-file
+        options:
+            max-size: 10m
     #ports:
-    #    - 6881:6881
-    #    - 6881:6881/udp
-    #    - 8080:8080
+    #    - '9091:9091'
+    image: haugene/transmission-openvpn
     restart: unless-stopped
     
 networks:
