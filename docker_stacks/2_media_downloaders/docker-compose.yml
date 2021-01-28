@@ -22,7 +22,7 @@ services:
         - PGID=1000
         - TZ=Australia/Melbourne
         - UMASK_SET=022
-        - WEBUI_PORT=8080
+        - WEBUI_PORT=9080
     volumes:
         - /home/bios/Docker/Containers/AppData/q/qbittorrent:/config
         - /home/bios/Docker/Data/Downloads:/downloads

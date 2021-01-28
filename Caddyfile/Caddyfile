@@ -151,7 +151,7 @@ bios.plus {
     https://aurora-qbittorrent.bios.plus {
         import cloudflare
         import logging
-        reverse_proxy aurora-qbittorrent:8080
+        reverse_proxy aurora-qbittorrent:9080
     }
 
     https://aurora-radarr.bios.plus {
