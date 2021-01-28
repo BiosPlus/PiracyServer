@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   sonarr4k:
-    image: ghcr.io/linuxserver/sonarr
+    image: ghcr.io/linuxserver/sonarr:preview
     container_name: aurora-sonarr4k
     environment:
         - PUID=1000
@@ -17,7 +17,7 @@ services:
 #      - 8989:8989
     restart: unless-stopped
   sonarr:
-    image: ghcr.io/linuxserver/sonarr
+    image: ghcr.io/linuxserver/sonarr:preview
     container_name: aurora-sonarr
     environment:
         - PUID=1000
