@@ -189,3 +189,9 @@ bios.plus {
         import logging
         reverse_proxy aurora-tautulli:8181
     }
+    
+    https://aurora-transmission.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-transmission:9091
+    }
