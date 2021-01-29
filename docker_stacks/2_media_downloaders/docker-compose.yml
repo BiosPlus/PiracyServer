@@ -48,7 +48,7 @@ services:
         - LOCAL_NETWORK=10.0.0.0/16
         - TRANSMISSION_SPEED_LIMIT_UP=15000
         - TRANSMISSION_SPEED_LIMIT_DOWN=15000
-        - TRANSMISSION_WEB_UI=flood
+    #    - TRANSMISSION_WEB_UI=flood #flood needs work
         - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
     logging:
         driver: json-file
