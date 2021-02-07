@@ -2,6 +2,7 @@
 version: "3.9"
 services:
   tvheadend:
+    hostname: aurora-tvheadend
     image: ghcr.io/linuxserver/tvheadend
     container_name: aurora-tvheadend
     environment:

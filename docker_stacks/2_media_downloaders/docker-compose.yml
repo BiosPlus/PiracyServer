@@ -2,6 +2,7 @@
 version: "3.9"
 services:
   nzbget:
+    hostname: aurora-nzbget
     image: ghcr.io/linuxserver/nzbget
     container_name: aurora-nzbget
     environment:
@@ -33,6 +34,7 @@ services:
   #   #    - 8080:8080
   #   restart: unless-stopped
   transmission-openvpn:
+    hostname: aurora-transmission
     container_name: aurora-transmission
     cap_add:
         - NET_ADMIN

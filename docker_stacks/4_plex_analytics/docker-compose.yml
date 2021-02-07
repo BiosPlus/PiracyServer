@@ -2,6 +2,7 @@
 version: "3.9"
 services:
   ombi:
+    hostname: aurora-ombi
     image: ghcr.io/linuxserver/ombi:latest
     container_name: aurora-ombi
     environment:
@@ -15,6 +16,7 @@ services:
 #        - 3579:3579
     restart: unless-stopped
   tautulli:
+    hostname: aurora-tautulli
     image: ghcr.io/linuxserver/tautulli:latest
     container_name: aurora-tautulli
     environment:

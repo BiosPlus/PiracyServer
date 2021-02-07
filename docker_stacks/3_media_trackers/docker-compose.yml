@@ -2,6 +2,7 @@
 version: "3.9"
 services:
   sonarr4k:
+    hostname: aurora-sonarr4k
     image: ghcr.io/linuxserver/sonarr:preview
     container_name: aurora-sonarr4k
     environment:
@@ -17,6 +18,7 @@ services:
 #      - 8989:8989
     restart: unless-stopped
   sonarr:
+    hostname: aurora-sonarr
     image: ghcr.io/linuxserver/sonarr:preview
     container_name: aurora-sonarr
     environment:
@@ -32,6 +34,7 @@ services:
 #      - 8989:8989
     restart: unless-stopped
   radarr4k:
+    hostname: aurora-radarr4k
     image: ghcr.io/linuxserver/radarr
     container_name: aurora-radarr4k
     environment:
@@ -47,6 +50,7 @@ services:
 #      - 7878:7878
     restart: unless-stopped
   radarr:
+    hostname: aurora-radarr
     image: ghcr.io/linuxserver/radarr
     container_name: aurora-radarr
     environment:

@@ -2,6 +2,7 @@
 version: "3.9"
 services:
   jackett:
+    hostname: aurora-jackett
     image: ghcr.io/linuxserver/jackett
     container_name: aurora-jackett
     environment:
@@ -16,6 +17,7 @@ services:
 #      - 9117:9117
     restart: unless-stopped
   nzbhydra2:
+    hostname: aurora-nzbhydra2
     image: ghcr.io/linuxserver/nzbhydra2
     container_name: aurora-nzbhydra2
     environment:
