@@ -8,6 +8,7 @@ services:
     environment:
         - ACME_AGREE=true
         #- CLOUDFLARE_AUTH_TOKEN=empty #fill the token
+        - ZEROSSL_API_KEY=empty
     volumes:
         - /home/bios/Docker/Containers/AppData/c/caddy2plus/:/etc/caddy/
     ports:
