@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
     environment:
-        - ACME_AGREE="$1_NETWORKING_ACME_AGREE"
+        - ACME_AGREE=${1_NETWORKING_ACME_AGREE}
         - CLOUDFLARE_AUTH_TOKEN="$1_NETWORKING_CLOUDFLARE_AUTH_TOKEN"
         - ZEROSSL_API_KEY="$1_NETWORKING_ZEROSSL_API_KEY"
     volumes:
