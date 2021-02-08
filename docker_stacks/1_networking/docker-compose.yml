@@ -6,9 +6,9 @@ services:
     image: biosplus/caddy2plus
     container_name: aurora-caddy2plus
     environment:
-        - ACME_AGREE=true
-        #- CLOUDFLARE_AUTH_TOKEN=empty #fill the token
-        - ZEROSSL_API_KEY=empty
+        - ACME_AGREE=${1_NETWORKING_ACME_AGREE}
+        - CLOUDFLARE_AUTH_TOKEN=${1_NETWORKING_CLOUDFLARE_AUTH_TOKEN}
+        - ZEROSSL_API_KEY=${1_NETWORKING_ZEROSSL_API_KEY}
     volumes:
         - /home/bios/Docker/Containers/AppData/c/caddy2plus/:/etc/caddy/
     ports:
