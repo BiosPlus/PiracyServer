@@ -1,1 +1,2 @@
-docker_stacks/env_file/.env
+*.env
+!template.env
