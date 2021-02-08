@@ -5,6 +5,8 @@ services:
     hostname: aurora-caddy2plus
     image: biosplus/caddy2plus
     container_name: aurora-caddy2plus
+    env_file:
+      - ../env_file/.env
     environment:
         - ACME_AGREE=${1_NETWORKING_ACME_AGREE}
         - CLOUDFLARE_AUTH_TOKEN=${1_NETWORKING_CLOUDFLARE_AUTH_TOKEN}
