@@ -5,12 +5,12 @@ services:
     hostname: aurora-caddy2plus
     image: biosplus/caddy2plus
     container_name: aurora-caddy2plus
-    #env_file:
-    #  - ./.env
+    env_file:
+      - ./.env
     environment:
-        - ACME_AGREE="$1_NETWORKING_ACME_AGREE"
-        - CLOUDFLARE_AUTH_TOKEN="$1_NETWORKING_CLOUDFLARE_AUTH_TOKEN"
-        - ZEROSSL_API_KEY="$1_NETWORKING_ZEROSSL_API_KEY"
+        - ACME_AGREE: "${1_NETWORKING_ACME_AGREE}"
+        - CLOUDFLARE_AUTH_TOKEN: "${1_NETWORKING_CLOUDFLARE_AUTH_TOKEN}"
+        - ZEROSSL_API_KEY: "${1_NETWORKING_ZEROSSL_API_KEY}"
     volumes:
         - /home/bios/Docker/Containers/AppData/c/caddy2plus/:/etc/caddy/
     ports:
