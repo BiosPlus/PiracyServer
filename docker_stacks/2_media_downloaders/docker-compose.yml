@@ -92,6 +92,7 @@ services:
         - PUID=1000
         - PGID=1000
     image: binhex/arch-delugevpn
+    restart: unless-stopped
 
 networks:
     default:
