@@ -111,6 +111,11 @@ bios.plus {
 
 
 #Subdomains
+    https://aurora-deluge.bios.plus {
+        import cloudflare
+        import logging
+        reverse_proxy aurora-deluge:8112
+    }
 
     https://aurora-jackett.bios.plus {
         import cloudflare

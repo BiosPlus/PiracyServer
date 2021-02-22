@@ -33,35 +33,66 @@ services:
   #   #    - 6881:6881/udp
   #   #    - 8080:8080
   #   restart: unless-stopped
-  transmission-openvpn:
-    hostname: aurora-transmission
-    container_name: aurora-transmission
-    cap_add:
-        - NET_ADMIN
-    volumes:
-        - /home/bios/Docker/Containers/AppData/t/transmission:/data
-        - /home/bios/Docker/Data/Downloads:/downloads
-    environment:
-        - TZ=Australia/Melbourne
-        - OPENVPN_PROVIDER=PIA
-        - OPENVPN_CONFIG=finland,france,italy
-        - OPENVPN_USERNAME=user
-        - OPENVPN_PASSWORD=pass
-        - LOCAL_NETWORK=10.0.0.0/16
-        - TRANSMISSION_SPEED_LIMIT_UP=15000
-        - TRANSMISSION_SPEED_LIMIT_DOWN=15000
-    #    - TRANSMISSION_WEB_UI=flood #flood needs work
-        - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
-    logging:
-        driver: json-file
-        options:
-            max-size: 10m
-    #ports:
-    #    - '9091:9091'
-    image: haugene/transmission-openvpn
-    restart: unless-stopped
+#   transmission-openvpn:
+#     hostname: aurora-transmission
+#     container_name: aurora-transmission
+#     cap_add:
+#         - NET_ADMIN
+#     volumes:
+#         - /home/bios/Docker/Containers/AppData/t/transmission:/data
+#         - /home/bios/Docker/Data/Downloads:/downloads
+#     environment:
+#         - TZ=Australia/Melbourne
+#         - OPENVPN_PROVIDER=PIA
+#         - OPENVPN_CONFIG=finland,france,italy
+#         - OPENVPN_USERNAME=user
+#         - OPENVPN_PASSWORD=pass
+#         - LOCAL_NETWORK=10.0.0.0/16
+#         - TRANSMISSION_SPEED_LIMIT_UP=15000
+#         - TRANSMISSION_SPEED_LIMIT_DOWN=15000
+#     #    - TRANSMISSION_WEB_UI=flood #flood needs work
+#         - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
+#     logging:
+#         driver: json-file
+#         options:
+#             max-size: 10m
+#     #ports:
+#     #    - '9091:9091'
+#     image: haugene/transmission-openvpn
+#     restart: unless-stopped
     
+  arch-delugevpn:
+    container_name: aurora-deluge
+    # ports:
+    #     - '8112:8112'
+    #     - '8118:8118'
+    #     - '58846:58846'
+    #     - '58946:58946'
+    volumes:
+        - '/home/bios/Docker/Data/Downloads:/data'
+        - '/home/bios/Docker/Containers/AppData/d/deluge:/config'
+        - '/etc/localtime:/etc/localtime:ro'
+    environment:
+        - VPN_ENABLED=yes
+        - VPN_USER=null
+        - VPN_PASS=null
+        - VPN_PROV=pia
+        - VPN_CLIENT=openvpn
+        - STRICT_PORT_FORWARD=yes
+        - ENABLE_PRIVOXY=yes
+        - LAN_NETWORK=10.0.0.0/24
+        - 'NAME_SERVERS=209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1'
+        - DELUGE_DAEMON_LOG_LEVEL=info
+        - DELUGE_WEB_LOG_LEVEL=info
+        - ADDITIONAL_PORTS=1234
+        - DEBUG=false
+        - UMASK=000
+        - PUID=1000
+        - PGID=1000
+    image: binhex/arch-delugevpn
+
 networks:
     default:
       external:
         name: internalized
+
