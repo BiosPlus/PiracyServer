@@ -72,6 +72,8 @@ services:
         - '/home/bios/Docker/Data/Downloads:/data'
         - '/home/bios/Docker/Containers/AppData/d/deluge:/config'
         - '/etc/localtime:/etc/localtime:ro'
+    cap_add:
+      - NET_ADMIN
     environment:
         - VPN_ENABLED=yes
         - VPN_USER=null
